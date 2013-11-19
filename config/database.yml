@@ -20,7 +20,7 @@ development:
   database: webfs_development
   pool: 5
   username: webfs
-  password:
+  password: 123456
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -49,7 +49,7 @@ test:
   database: webfs_test
   pool: 5
   username: webfs
-  password:
+  password: 123456
 
 production:
   adapter: postgresql
@@ -57,4 +57,4 @@ production:
   database: webfs_production
   pool: 5
   username: webfs
-  password:
+  password: 123456

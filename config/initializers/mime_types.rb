@@ -4,7 +4,7 @@
 # Mime::Type.register "text/richtext", :rtf
 # Mime::Type.register_alias "text/html", :iphone
 
-MIMES = YAML.load_file(File.expand_path('../../mimes.yaml', __FILE__))
+MIMES = YAML.load_file(File.expand_path('../../mimes.yml', __FILE__))
 
 MIMES.each do|ext, mime|
   Mime.fetch(ext) do|fallback|

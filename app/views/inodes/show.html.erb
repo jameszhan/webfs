@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Shasum:</strong>
+  <%= @inode.shasum %>
+</p>
+
+<p>
+  <strong>Uri:</strong>
+  <%= @inode.uri %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @inode.size %>
+</p>
+
+<p>
+  <strong>Content type:</strong>
+  <%= @inode.content_type %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @inode.name %>
+</p>
+
+<%= preview(@inode) %>
+
+<%= link_to 'Edit', edit_inode_path(@inode) %> |
+<%= link_to 'Back', inodes_path %>

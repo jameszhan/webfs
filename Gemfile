@@ -24,6 +24,8 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
+gem 'bootstrap-sass-rails'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
@@ -32,6 +34,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'kaminari'
 
 gem 'sidekiq'
 # Use ActiveModel has_secure_password

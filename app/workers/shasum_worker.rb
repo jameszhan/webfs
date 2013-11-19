@@ -1,15 +1,22 @@
+require 'shellwords'
+
 class ShasumWorker
   include Sidekiq::Worker
 
   def perform(id)
-    resource = Resource.find(id)
+    inode = Inode.find(id)
     begin
-      str = `shasum '#{resource.uri}'`
+      logger.info { "shasum \"#{escape(inode.uri)}\"" }
+      str = `shasum "#{escape(inode.uri)}"`
       checksum = str.split[0]
-      resource.update(checksum: checksum)
+      inode.update(shasum: checksum)
     rescue Exception => e
-      puts "path => #{resource.uri} error: #{e.message}"
-      puts e.backtrace
+      logger.error "path => #{escape(inode.uri)} error: #{e.message}"
+      logger.error e.backtrace
     end
+  end
+  
+  def escape(str)
+    str
   end
 end

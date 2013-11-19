@@ -10,3 +10,18 @@
  *
  *= require_self
  */
+ 
+@import "twitter/bootstrap";
+
+body {
+  margin-top: 60px;
+}
+
+.asc {
+  @extend .glyphicon;
+  @extend .glyphicon-arrow-up;
+}
+.desc {
+  @extend .glyphicon;
+  @extend .glyphicon-arrow-down;
+}
