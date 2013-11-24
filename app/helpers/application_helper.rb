@@ -5,7 +5,7 @@ module ApplicationHelper
     icon = "<i class=\"#{column == sort_column ? "current #{sort_direction}" : "visible-xs"}\"></i>"
     "#{link_to(title, {:sort => column, :direction => direction})}#{icon}"
   end
-  
+=begin  
   def preview(inode)
     type = inode.content_type[/^[^\/]+/].to_sym
     ext = inode.content_type[/(?<=\/)(.+$)/].to_sym
@@ -29,4 +29,5 @@ module ApplicationHelper
       "Binary File [#{inode.uri}]" 
     end
   end
+=end
 end

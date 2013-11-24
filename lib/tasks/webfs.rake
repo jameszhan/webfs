@@ -22,7 +22,7 @@ namespace :webfs do
           basename = File.basename(path, ext)
           inode = Inode.create(
             name: basename, 
-            content_type: Mime.fetch(ext.sub(/^\./, "")){|fallback| "application/x-unknown" }.to_s, 
+            content_type: Mime.fetch(ext[/\w+/]){|fallback| "unknown/#{fallback}" }.to_s, 
             uri: path,
             size: s.size
           ) 

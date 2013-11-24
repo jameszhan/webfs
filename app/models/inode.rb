@@ -10,4 +10,9 @@ class Inode < ActiveRecord::Base
     indexes :author,        :analyzer => 'keyword'
     indexes :published_on,  :type => 'date', :include_in_all => false
   end
+  
+  def content
+    File.read(self.uri)
+  end  
+  
 end

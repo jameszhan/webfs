@@ -1,5 +1,4 @@
 <h1>Listing inodes</h1>
-<%= ENV["JAVA_HOME"] %>
 <table class="table table-bordered">
   <thead>
     <tr>			
@@ -8,19 +7,14 @@
       <th><%=raw sortable "content_type" %></th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @inodes.each do |inode| %>
       <tr data-shasum="<%= inode.shasum %>">				
-        <td>
-					<a data-toggle="tooltip" data-placement="right" title="<%= inode.uri %>"><%= inode.name %></a>
-				</td>
+        <td><%= content_tag :a, inode.name, data: {toggle: "modal", target:"#previewModal", id: inode.id, uri: inode.uri, mime: inode.content_type, title: inode.name, link: preview_path(:inodes, inode.id)} %></td>
         <td><%= number_to_human_size(inode.size) %></td>
         <td><%= inode.content_type %></td>
-				<td><%= link_to 'Open', open_inode_path(inode) %></td>
-        <td><%= link_to 'Show', inode %></td>
         <td><%= link_to 'Edit', edit_inode_path(inode) %></td>
         <td><%= link_to 'Destroy', inode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

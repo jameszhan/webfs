@@ -32,7 +32,8 @@ class InodesController < ApplicationController
     system "open -a #{app} #{inode.uri}"
     redirect_to request.referer
   end
-  
+
+=begin  
   def preview  
     inode = Inode.find(params[:id])  
     response.headers['Cache-Control'] = "public, max-age=#{12.hours.to_i}"
@@ -40,7 +41,7 @@ class InodesController < ApplicationController
     response.headers['Content-Disposition'] = 'inline'
     render text: File.read(inode.uri), content_type: content_type
   end
-
+=end
 
   # POST /inodes
   # POST /inodes.json
