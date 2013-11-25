@@ -4,8 +4,11 @@ Webfs::Application.routes.draw do
       get 'open'
     end
   end
+  
+  get "/fs/ls",   to: FsController.action(:ls),   as: :fs_ls
+  get "/fs/open", to: FsController.action(:open), as: :fs_open
+  get "/fs/download", to: FsController.action(:download), as: :fs_download
     
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,7 @@
+<div class="container">
+	<ul>
+	<% @files.each do|file| %>
+		<li><%= link_to file, fs_open_path(path: file) %></li>
+	<% end %>
+	</ul>
+</div>
