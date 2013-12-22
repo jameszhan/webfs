@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20131103051218) do
   enable_extension "plpgsql"
 
   create_table "inodes", force: true do |t|
-    t.string   "shasum"
+    t.string   "digest"
     t.string   "uri"
     t.integer  "size",         limit: 8
     t.string   "content_type"

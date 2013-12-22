@@ -33,7 +33,7 @@ namespace :webfs do
   
   task :shasum => :environment do
     Inode.all.each do|resource| 
-      ShasumWorker.perform_async(resource.id) unless resource.shasum
+      ChecksumWorker.perform_async(resource.id) unless resource.shasum
     end
   end
 end

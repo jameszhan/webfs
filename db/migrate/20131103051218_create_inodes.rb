@@ -1,7 +1,7 @@
 class CreateInodes < ActiveRecord::Migration
   def change
     create_table :inodes do |t|
-      t.string :shasum
+      t.string :digest
       t.string :uri
       t.integer :size, limit: 8
       t.string :content_type
