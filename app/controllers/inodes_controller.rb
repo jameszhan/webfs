@@ -7,7 +7,6 @@ class InodesController < ApplicationController
   # GET /inodes.json
   def index
     @inodes = Inode.order(sort_column + " " + sort_direction).page params[:page]
-    throw "1"
   end
 
   # GET /inodes/1
