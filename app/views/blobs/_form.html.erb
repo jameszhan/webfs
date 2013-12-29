@@ -1,0 +1,37 @@
+<%= form_for(@blob) do |f| %>
+  <% if @blob.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@blob.errors.count, "error") %> prohibited this blob from being saved:</h2>
+
+      <ul>
+      <% @blob.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :digest %><br>
+    <%= f.text_field :digest %>
+  </div>
+  <div class="field">
+    <%= f.label :uri %><br>
+    <%= f.text_field :uri %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br>
+    <%= f.text_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :content_type %><br>
+    <%= f.text_field :content_type %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

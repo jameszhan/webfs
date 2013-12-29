@@ -1,0 +1,42 @@
+<h1>Listing blobs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Digest</th>
+      <th>Name</th>
+      <th>Size</th>
+      <th>Content type</th>
+      <th>创建时间</th>
+      <th>更新时间</th>
+<!-- 
+      <th></th>
+      <th></th>
+      <th></th>
+-->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blobs.each do |blob| %>
+      <tr>	
+				<td><%= blob.digest %></td>
+        <td style="width:200px;" data-uri="<%= blob.uri %>"><%= blob.name %></td>
+        <td><%= blob.size %></td>
+        <td><%= blob.content_type %></td>
+				<td><%= blob.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+        <td><%= blob.updated_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+<!-- 
+        <td><%= link_to 'Show', blob %></td>
+        <td><%= link_to 'Edit', edit_blob_path(blob) %></td>
+        <td><%= link_to 'Destroy', blob, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+-->
+      </tr>
+    <% end %>
+		<%= paginate @blobs %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Blob', new_blob_path %>

@@ -1,4 +1,5 @@
 class Inode < ActiveRecord::Base
+=begin
   include Tire::Model::Search
   include Tire::Model::Callbacks
   
@@ -14,5 +15,6 @@ class Inode < ActiveRecord::Base
   def content
     File.read(self.uri)
   end  
+=end
   
 end

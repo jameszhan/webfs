@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131103051218) do
+ActiveRecord::Schema.define(version: 20131226034342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blobs", force: true do |t|
+    t.string   "digest"
+    t.string   "uri"
+    t.string   "size"
+    t.string   "content_type"
+    t.string   "name"
+    t.datetime "modified_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "inodes", force: true do |t|
     t.string   "digest"

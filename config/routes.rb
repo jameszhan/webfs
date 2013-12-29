@@ -1,4 +1,6 @@
 Webfs::Application.routes.draw do
+  resources :blobs
+
   resources :inodes do
     member do
       get 'open'
