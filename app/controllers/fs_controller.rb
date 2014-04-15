@@ -1,7 +1,13 @@
 class FsController < ActionController::Metal
-  include AbstractController::Layouts
+  
   include ActionController::DataStreaming
   include ActionController::Instrumentation
+  
+  ##
+  # Fix it for upgrading to Rails 4.1
+  #include AbstractController::Layouts  
+  include AbstractController::Rendering
+  include ActionView::Layouts
   include Rails.application.routes.url_helpers
   
   append_view_path "#{Rails.root}/app/views"

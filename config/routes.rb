@@ -1,4 +1,6 @@
 Webfs::Application.routes.draw do
+  resources :books
+
   resources :blobs
 
   resources :inodes do

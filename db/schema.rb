@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131226034342) do
+ActiveRecord::Schema.define(version: 20140101152415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authors", force: true do |t|
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.string   "aliases",     default: [], array: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "blobs", force: true do |t|
     t.string   "digest"
@@ -26,6 +35,30 @@ ActiveRecord::Schema.define(version: 20131226034342) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "books", force: true do |t|
+    t.string   "title"
+    t.string   "aliases",    default: [], array: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "districts", force: true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.string   "type"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.float    "area"
+    t.string   "abbr"
+    t.integer  "postal"
+    t.string   "area_code"
+    t.string   "level"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "districts", ["code"], name: "index_districts_on_code", unique: true, using: :btree
 
   create_table "inodes", force: true do |t|
     t.string   "digest"
