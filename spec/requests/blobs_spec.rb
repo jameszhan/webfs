@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+
 describe "Blobs" do
   describe "GET /blobs" do
     it "works! (now write some real specs)" do
@@ -7,5 +8,8 @@ describe "Blobs" do
       get blobs_path
       response.status.should be(200)
     end
+    
   end
+  
+
 end
